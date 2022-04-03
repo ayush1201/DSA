@@ -1,0 +1,1 @@
+This is a trial DSA text file
