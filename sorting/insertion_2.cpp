@@ -11,7 +11,7 @@ void insertion_sort(int arr[],int N){
              prev=prev-1;
 
          }
-         arr[prev]=current;
+         arr[prev+1]=current;
      }
 }
 
