@@ -1,6 +1,7 @@
 //first while loop will be for printing intervals less than newINterval.
 //second while is for taking common interval between intervals and newInterval.
 //thord loop is for printing intervals bigger than newInterval.
+//time complexity o(N).
 class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
