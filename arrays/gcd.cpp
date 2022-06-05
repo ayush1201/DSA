@@ -1,3 +1,4 @@
+//the formula for gcd is gcd(a-b,b) or gcd(a,b-a) depends on which number is greater ..
 #include<iostream>
 using namespace std;
 
