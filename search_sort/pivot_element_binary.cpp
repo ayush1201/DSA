@@ -22,6 +22,6 @@ int getPivot(int arr[], int n) {
 }
 
 int main() {
-    int arr[2] = {3,1};
-    cout << "Pivot is " << getPivot(arr, 2) << endl;
+    int arr[4] = {3,4,0,2};
+    cout << "Pivot is " << getPivot(arr, 4) << endl;
 }
