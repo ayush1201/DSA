@@ -28,7 +28,7 @@ int partition(int *arr,int start,int end){
 
 void quickSort(int *arr,int start,int end){
     if(start>=end)
-     return;
+     return; 
     //creating partition
     int part=partition(arr,start,end);
     //recursive call for left side of partition
