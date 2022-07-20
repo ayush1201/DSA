@@ -36,3 +36,51 @@ Node* sortList(Node *head)
     }
 return head;
 }
+
+//2nd approach using merging concept.
+//basic concept is making zero,one and two linked list seperately and then merge them all one by one.
+Node* insertAttail(Node* &tail,Node* curr){
+    tail -> next = curr;
+    tail = curr;
+}
+Node* sortList(Node *head)
+{
+    // Write your code here.
+    //creating three lists.
+    //creating lists with dummy values to prevent multiple if statements.
+    Node* zeroHead = new Node(-1);
+    Node* zeroTail = zeroHead;
+    Node* oneHead = new Node(-1);
+    Node* oneTail = oneHead;
+    Node* twoHead = new Node(-1);
+    Node * twoTail = twoHead;
+    
+    Node* curr = head;
+    while(curr != NULL){
+        if(curr -> data == 0)
+            insertAttail(zeroTail,curr);
+        
+        else if(curr -> data == 1)
+            insertAttail(oneTail,curr);
+        
+        else if(curr -> data == 2)
+            insertAttail(twoTail,curr);
+        curr = curr -> next;
+    }
+    //now merging the three linkeed lists.
+    if(oneHead -> next != NULL ){ //one list is not empty.
+        zeroTail -> next = oneHead -> next;
+    }
+    else{
+        zeroTail -> next = twoHead -> next;
+    }
+    oneTail -> next = twoHead -> next;
+    twoTail -> next = NULL;
+    head = zeroHead -> next;  
+    //deleting dummy nodes.
+    delete zeroHead;
+    delete oneHead;
+    delete twoHead;
+    
+return head;
+}
