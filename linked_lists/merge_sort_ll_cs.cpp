@@ -1,3 +1,4 @@
+//o(nlogn) is time and o(logn) is space.
 node* findMid(node* head){
     node* slow = head;
     node* fast = head -> next;
