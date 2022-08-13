@@ -1,17 +1,20 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+//for getting first subsequence of the array as equal to given sum.
 
-void subseq(int index,vector<int> &ans,int *arr,int n,int sum,int tot){
+bool subseq(int index,vector<int> &ans,int *arr,int n,int sum,int tot){
     //base case
     if(index>=n){
         if(tot == sum){
             for(auto i : ans){
             cout<<i<<" ";
            }cout<<endl;
+           return true;
         } 
-        
-        return;
+        else {
+            return false;
+        }
     }
 
     //take the index number
@@ -19,14 +22,17 @@ void subseq(int index,vector<int> &ans,int *arr,int n,int sum,int tot){
     //updating tot.
     tot += arr[index];
     //recursive call
-    subseq(index+1,ans,arr,n,sum,tot);
+    if(subseq(index+1,ans,arr,n,sum,tot) == true)
+     return true;
 
     //don't take condition
     ans.pop_back();
     //removing last sum from tot.
     tot -= arr[index];
     //recursive call
-    subseq(index+1,ans,arr,n,sum,tot);
+    if(subseq(index+1,ans,arr,n,sum,tot) == true){
+        return true;
+    }
 }
 
 
