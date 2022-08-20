@@ -33,3 +33,36 @@ class Solution {
         return ans;
     }
 };
+
+//approach 2 - optimized
+public:
+    pair<int,int> Fastdiameter(Node* root){
+        //base case and first will be left and second will be right.
+        if(root == NULL){
+            pair<int,int> p = make_pair(0,0);
+            return p;
+        }
+        
+        pair<int,int> left = Fastdiameter(root -> left);
+        pair<int,int> right = Fastdiameter(root -> right);
+        
+        //option 1 will be diameter will be in left part.
+        int opt1 = left.first;
+        //option 2 will be diameter will be in right part.
+        int opt2 = right.first;
+        //option 3 will be the height of left and right + 1 will be diameter.
+        int opt3 = left.second + right.second + 1;
+        
+        pair<int,int> ans;
+        //for diameter
+        ans.first = max(opt1,max(opt2,opt3));
+        //for height.
+        ans.second = max(left.second,right.second) + 1;
+        return ans;
+    }
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node* root) {
+        // Your code here
+        //first will be diameter.
+        return Fastdiameter(root).first;
+    }
