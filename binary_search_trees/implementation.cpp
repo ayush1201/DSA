@@ -66,7 +66,8 @@ Node* levelOrder(Node* root){
 void takeInput(Node* &root){
     int data;
     cin>>data;
-
+    
+    //jabtak -1 na enter kia jaye tabtak aage lete raho nodes.
     while(data != -1){
         root = insertIntoBST(root,data);
         cin>>data;
