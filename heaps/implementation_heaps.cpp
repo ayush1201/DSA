@@ -90,11 +90,11 @@ void heapify(int arr[],int n,int i){
     int left = 2*i;
     int right = 2*i + 1;
 
-    if(left < n && arr[left] > arr[largest]){
+    if(left <= n && arr[left] > arr[largest]){
         //update largest
         largest = left;
     }
-    if(right < n && arr[right] > arr[largest]){
+    if(right <= n && arr[right] > arr[largest]){
         //update largest.
         largest = right;
     }
@@ -103,6 +103,18 @@ void heapify(int arr[],int n,int i){
         swap(arr[largest],arr[i]);
         //check further ndes to be get heaped.
         heapify(arr,n,largest);
+    }
+}
+
+void heapSort(int arr[],int n){
+    //step 1 - swap arr[i] with arr[n].
+    int t = n;
+    while(t>1){
+      //step 1 - swap arr[i] with arr[t].
+      swap(arr[t],arr[1]);
+      //step2 - now check the root node is in correct position or not by calling heapify function.
+      t--;//size--.
+      heapify(arr,t,1); 
     }
 }
 
@@ -124,10 +136,18 @@ int main(){
 
     int arr[6] = {-1,54,55,53,52,51};
     int n = 5;
+    //heap creation.
     for(int i=n/2;i>0;i--){
         heapify(arr,n,i);
     }
     cout<<"printing array after heapify"<<endl;
+    for(int i=1;i<=n;i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
+
+    //heapsort
+    heapSort(arr,n);
+    cout<<"printing array after sorting"<<endl;
     for(int i=1;i<=n;i++){
         cout<<arr[i]<<" ";
     }cout<<endl;
