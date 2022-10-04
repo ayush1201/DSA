@@ -76,6 +76,27 @@ public:
         return dp[amount];
     }
     
+    //uttu soln
+//     class Solution {
+// public:
+//     int coinChange(vector<int>& coins, int amount) {
+        
+//         vector<int> dp(amount + 1, 1e5);
+        
+//         dp[0] = 0;
+        
+//         for(int x = 1; x <= amount; x++) {
+//             for(int c : coins) {
+//                 if(x - c >= 0) dp[x] = min(dp[x], 1 + dp[x - c]);
+//             }
+//         }
+        
+//         if(dp[amount] >= 1e5) return -1;
+//         return dp[amount];
+        
+//     }
+// };
+    
     int coinChange(vector<int>& coins, int amount) {
         int n = coins.size();
         vector<int> dp(amount+1,-1);
